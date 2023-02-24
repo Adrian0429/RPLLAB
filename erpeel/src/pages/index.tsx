@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from 'components/Navbar'
-import HomePage from 'components/Hero'
-import Hero from 'components/Hero'
 import Layout from 'layout/layout'
 import AboutMe from './AboutMe'
 import Skills from './Skills'
+import Hobbies from './Hobbies'
+import Hero from './Hero'
+import ContactMe from './ContactMe'
 
 
 export default function Home() {
@@ -23,7 +24,9 @@ export default function Home() {
       <main>
       <Hero/>
       <AboutMe/>
+      <Hobbies/>
       <Skills/>
+      <ContactMe/>
       
       </main>
     </Layout>

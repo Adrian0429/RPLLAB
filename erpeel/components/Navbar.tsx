@@ -12,37 +12,51 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [shadow, setShadow] = useState(false);
+
   const HandleNav = () => {
     setMenuOpen(!menuOpen);
   };
 
+  useEffect(() => {
+    const handleShadow = () => {
+      if(window.scrollY >= 90){
+        setShadow(true);
+      }else{
+        setShadow(false);
+      }
+    };
+    window.addEventListener('scroll', handleShadow);
+  }, []);
+
+
   return (
-    <nav id="navbar-new" className="fixed w-full h-14 shadow-lg bg-white">
+    <nav id="navbar-new" className="fixed z-50 w-full h-20 shadow-lg bg-white">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
-        <Link href="/">Welcome</Link>
+        <Link href="/" className="text-lg font-bold">Welcome</Link>
 
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
             <li className="mx-5 uppercase hover:border-b">
-              <a href="/kawkak" className="text-sm">
-                hellow
-              </a>
+              <Link href="/Custom404" className="text-lg">
+                What's This?
+              </Link>
             </li>
 
             <li className="mx-5 uppercase hover:border-b">
-              <a href="/" className="text-sm">
+              <Link href="/#AboutMe" className="text-lg">
                 About
-              </a>
+              </Link>
             </li>
 
             <li className="mx-5 uppercase hover:border-b">
-              <a href="" className="text-sm">
+              <Link href="/ContactMe" className="text-lg">
                 Contact Me !
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -70,21 +84,21 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
               className="py-4 cursor-pointer"
             >
-              <a href="/">Hellow</a>
+              <Link href="/">Hellow</Link>
             </li>
 
             <li
               onClick={() => setMenuOpen(false)}
               className="py-4 cursor-pointer"
             >
-              <a href="/">About</a>
+              <Link href="/#AboutMe">About</Link>
             </li>
 
             <li
               onClick={() => setMenuOpen(false)}
               className="py-4 cursor-pointer"
             >
-              <a href="/">Contact Me !</a>
+              <Link href="/">Contact Me !</Link>
             </li>
           </ul>
         </div>

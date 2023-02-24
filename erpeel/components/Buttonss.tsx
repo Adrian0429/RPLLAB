@@ -1,4 +1,3 @@
-
 type buttontype = {
     title: string;
 }
