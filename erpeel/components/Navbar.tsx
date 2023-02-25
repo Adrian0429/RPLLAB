@@ -24,20 +24,21 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleShadow = () => {
-      if(window.scrollY >= 90){
+      if (window.scrollY >= 90) {
         setShadow(true);
-      }else{
+      } else {
         setShadow(false);
       }
     };
-    window.addEventListener('scroll', handleShadow);
+    window.addEventListener("scroll", handleShadow);
   }, []);
-
 
   return (
     <nav id="navbar-new" className="fixed z-50 w-full h-20 shadow-lg bg-white">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
-        <Link href="/" className="text-lg font-bold">Welcome</Link>
+        <Link href="/" className="text-lg font-bold">
+          Welcome
+        </Link>
 
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">

@@ -33,6 +33,7 @@ export default function ReactHookFormAdvanced() {
   const [data, setData] = useState(null);
   const watchSendEmail = watch("sendEmail");
   renderCount += 1;
+  
   return (
     <div className="w-full flex justify-center items-center bg-gray-500 p-8">
       <div
@@ -81,7 +82,7 @@ export default function ReactHookFormAdvanced() {
               
               required: {value:true, message: 'Phone Number is required'},
               minLength: {value: 10, message:'Too Short!'},
-              maxLength: {value: 10, message: 'Too Long!'},
+              maxLength: {value: 14, message: 'Too Long!'},
             })}
           />
           {errors.phoneNumber && (

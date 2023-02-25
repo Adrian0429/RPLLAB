@@ -1,4 +1,5 @@
-import react
+import React from "react";
+
 function NameInput({ register }) {
     return (
       <input

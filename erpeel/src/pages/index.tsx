@@ -4,9 +4,9 @@ import Navbar from 'components/Navbar'
 import Layout from 'layout/layout'
 import AboutMe from './AboutMe'
 import Skills from './Skills'
-import Hobbies from './Hobbies'
 import Hero from './Hero'
 import ContactMe from './ContactMe'
+import PictSection from './pictSection'
 
 
 export default function Home() {
@@ -23,10 +23,10 @@ export default function Home() {
 
       <main>
       <Hero/>
-      <AboutMe/>
-      <Hobbies/>
+      <PictSection/>
+            <AboutMe/>
       <Skills/>
-      <ContactMe/>
+      
       
       </main>
     </Layout>
