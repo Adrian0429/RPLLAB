@@ -44,7 +44,7 @@ const Navbar = () => {
           <ul className="hidden sm:flex">
             <li className="mx-5 uppercase hover:border-b">
               <Link href="/Custom404" className="text-lg">
-                What's This?
+                Whats This?
               </Link>
             </li>
 
@@ -55,8 +55,8 @@ const Navbar = () => {
             </li>
 
             <li className="mx-5 uppercase hover:border-b">
-              <Link href="/ContactMe" className="text-lg">
-                Contact Me !
+              <Link href="/orderpage" className="text-lg">
+                Get Yours Now!
               </Link>
             </li>
           </ul>

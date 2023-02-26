@@ -91,8 +91,8 @@ const Hero = () => (
             </motion.p>
 
             <div className="mt-8 flex flex-wrap gap-4 text-center">
-            <WhiteButton title="Get Started"/>
-            <RedButton title="kok ga merash sih"/>
+            <WhiteButton title="Get Started" url="/ContactMe"/>
+            <RedButton title="kok ga merash sih" url="/ContactMe"/>
             {/* <RedButton title="Learn More"/> */}
 
             </div>

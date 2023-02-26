@@ -19,12 +19,13 @@ const textVariant = (delay: number) => ({
 
 type buttontype = {
   title: string;
+  url: string;
 };
 
-const RedButton = ({ title }: buttontype) => {
+const RedButton = ({ title, url }: buttontype) => {
   return (
     <motion.section variants={textVariant(0.8)} className="group relative inline-flex items-center overflow-hidden rounded bg-rose-600 text-white px-8 py-3 white focus:outline-none focus:ring active:bg-white active:text-rose-600">
-      <Link href="/download">
+      <Link href={url}>
         <span className="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4">
           <svg
             className="h-5 w-5"

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { url } from "inspector";
 
 const textVariant = (delay: number) => ({
   hidden: {
@@ -19,12 +20,13 @@ const textVariant = (delay: number) => ({
 
 type buttontype = {
   title: string;
+  url: string;
 };
 
-const WhiteButton = ({ title }: buttontype) => {
+const WhiteButton = ({ title, url }: buttontype) => {
   return (
     <motion.section variants={textVariant(0.8)} className="group relative inline-flex items-center overflow-hidden rounded bg-white px-8 py-3 text-rose-600 focus:outline-none focus:ring active:bg-rose-600 active:text-white">
-      <Link href="/download">
+      <Link href={url}>
         <span className="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4">
           <svg
             className="h-5 w-5"
