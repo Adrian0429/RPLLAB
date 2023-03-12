@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-
 const textVariant = (delay: number) => ({
   hidden: {
     y: 50,
@@ -20,12 +19,12 @@ const textVariant = (delay: number) => ({
 
 type buttontype = {
   title: string;
-  url: string;
+  url?: string;
 };
 
-const WhiteButton = ({ title, url }: buttontype) => {
+const RedButton = ({ title, url }: buttontype) => {
   return (
-    <motion.section variants={textVariant(0.8)} className="group relative inline-flex items-center overflow-hidden rounded bg-white px-8 py-3 text-rose-600 focus:outline-none focus:ring active:bg-rose-600 active:text-white">
+    <motion.section variants={textVariant(1.2)} className="group relative inline-flex items-center overflow-hidden rounded bg-green-700 text-white px-8 py-3 white focus:outline-none focus:ring active:bg-white active:text-rose-600">
       <Link href={url}>
         <span className="absolute left-0 -translate-x-full transition-transform group-hover:translate-x-4">
           <svg
@@ -52,4 +51,4 @@ const WhiteButton = ({ title, url }: buttontype) => {
   );
 };
 
-export default WhiteButton;
+export default RedButton;

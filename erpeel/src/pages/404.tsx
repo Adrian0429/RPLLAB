@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import imageerror from "public/assets/404.jpg";
 import Link from "next/link";
+import NewNav from "components/Navbar";
+import HeroNew from "components/HeroNew";
+
 
 interface Props {}
 
@@ -24,11 +27,12 @@ class Custom404 extends React.Component<Props, State> {
     //timer duration == 3detik
     const delayInSeconds = 3;
     let countDown = delayInSeconds;
-  
+
     const timerId = setInterval(() => {
       if (countDown === 0) {
         this.setState({
-          message: "Tapi Boong, pencet yang dibawah yak buat balik :) belom belajar buat itu",
+          message:
+            "Tapi Boong, pencet yang dibawah yak buat balik :) belom belajar buat itu",
         });
         clearInterval(timerId);
       } else {
@@ -46,25 +50,30 @@ class Custom404 extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className='flex flex-col items-center justify-center min-h-screen py-6'>
-        <h1 className='mb-4 text-4xl font-bold text-gray-800 text-center'>
-          {this.state.message}
-        </h1>
-        <Image
-          src={imageerror}
-          alt="/"
-          height={500}
-          className='w-full pt-16 mt-4'
-        />
-        <p className=' text-gray-700 mt-6 text-center text-3xl font-semibold'>Please check the URL and try again. <br/>
-          <span>
-            {" "}
-            
-            {/* <a> untuk ke web lain (keluar web)</a> Link untuk didalam page */}
-            <Link href="/" className='text-center text-blue-500'>click here</Link> to go back
-          </span>
-        </p>
+      <>
+      <NewNav/>
+      <div className="grid h-screen px-4 bg-white place-content-center">
+        <div className="text-center">
+          <h1 className="font-black text-gray-200 text-9xl">404</h1>
+
+          <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Uh-oh!
+          </p>
+
+          <p className="mt-4 text-gray-500">We can't find that page.</p>
+          <h1 className="mb-4 text-4xl font-bold text-gray-800 text-center">
+            {this.state.message}
+          </h1>
+          <Link
+            href="/"
+            className="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:outline-none focus:ring"
+          >
+            Go Back Home
+          </Link>
+        </div>
       </div>
+      
+      </>
     );
   }
 }

@@ -1,116 +1,88 @@
-import Link from "next/link";
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-  AiOutlineInstagram,
-  AiOutlineGithub,
-  AiOutlineLinkedin,
-} from "react-icons/ai";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [shadow, setShadow] = useState(false);
+  const [nav, setNav] = useState(false);
+  const [color, setColor] = useState('transparent');
+  const [textColor, setTextColor] = useState('white');
 
-  const HandleNav = () => {
-    setMenuOpen(!menuOpen);
+  const handleNav = () => {
+    setNav(!nav);
   };
 
   useEffect(() => {
-    const handleShadow = () => {
+    const changeColor = () => {
       if (window.scrollY >= 90) {
-        setShadow(true);
+        setColor('#ffffff');
+        setTextColor('#000000');
       } else {
-        setShadow(false);
+        setColor('transparent');
+        setTextColor('#A4BE7B');
       }
     };
-    window.addEventListener("scroll", handleShadow);
+    window.addEventListener('scroll', changeColor);
   }, []);
 
   return (
-    <nav id="navbar-new" className="fixed z-50 w-full h-20 shadow-lg bg-white">
-      <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
-        <Link href="/" className="text-lg font-bold">
-          Welcome
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className='fixed left-0 top-0 w-full z-10 ease-in duration-300'
+    >
+      <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
+        <Link href='/'>
+          <h1 style={{ color: `${textColor}` }} className='font-bold text-4xl'>
+            KeybStore
+          </h1>
         </Link>
+        <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
+          <li className='p-4'>
+            <Link href='/'>Home</Link>
+          </li>
+          <li className='p-4'>
+            <Link href='/#PictSection'>Gallery</Link>
+          </li>
+          <li className='p-4'>
+            <Link href='/work'>Work</Link>
+          </li>
+          <li className='p-4'>
+            <Link href='/contact'>Contact</Link>
+          </li>
+        </ul>
 
-        <div className="hidden sm:flex">
-          <ul className="hidden sm:flex">
-            <li className="mx-5 uppercase hover:border-b">
-              <Link href="/Custom404" className="text-lg">
-                Whats This?
-              </Link>
-            </li>
-
-            <li className="mx-5 uppercase hover:border-b">
-              <Link href="/#AboutMe" className="text-lg">
-                About
-              </Link>
-            </li>
-
-            <li className="mx-5 uppercase hover:border-b">
-              <Link href="/orderpage" className="text-lg">
-                Get Yours Now!
-              </Link>
-            </li>
-          </ul>
+        {/* Mobile Button */}
+        <div onClick={handleNav} className='block sm:hidden z-10'>
+          {nav ? (
+            <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
+          ) : (
+            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
+          )}
         </div>
-
-        <div onClick={HandleNav} className="sm:hidden cursor-pointer pl-24">
-          <AiOutlineMenu size={25} />
-        </div>
-      </div>
-      <div
-        className={
-          menuOpen
-            ? "fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-            : "fixed left-[-100%] h-screen top-0 p-10 ease-in-out duration-500"
-        }
-      >
-        <div className="flex w-full items-center justify-end">
-          <div onClick={HandleNav} className="cursor-pointer">
-            <AiOutlineClose size={25} />
-          </div>
-        </div>
-
-        <div className="flex-col py-4">
+        {/* Mobile Menu */}
+        <div
+          className={
+            nav
+              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+              : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+          }
+        >
           <ul>
-            <li
-              onClick={() => setMenuOpen(false)}
-              className="py-4 cursor-pointer"
-            >
-              <Link href="/">Hellow</Link>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/'>Home</Link>
             </li>
-
-            <li
-              onClick={() => setMenuOpen(false)}
-              className="py-4 cursor-pointer"
-            >
-              <Link href="/#AboutMe">About</Link>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/#gallery'>Gallery</Link>
             </li>
-
-            <li
-              onClick={() => setMenuOpen(false)}
-              className="py-4 cursor-pointer"
-            >
-              <Link href="/">Contact Me !</Link>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/work'>Work</Link>
+            </li>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/contact'>Contact</Link>
             </li>
           </ul>
         </div>
-
-        <div className="flex flex-row justify-around pt-10 items-center">
-          <FaInstagram size={30}></FaInstagram>
-          <FaGithub size={30}></FaGithub>
-          <FaLinkedinIn size={30}></FaLinkedinIn>
-        </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
